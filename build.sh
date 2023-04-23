@@ -10,6 +10,11 @@ for pkg in $(echo -e "$rpm_packages"); do \
 done
 echo "---"
 
+rpmbuild -ba \
+    --define '_topdir /tmp/mangohud/rpmbuild' \
+    --define '%_tmppath %{_topdir}/tmp' \
+    /tmp/mangohud/mangohud.spec
+
 # install yafti to install flatpaks on first boot, https://github.com/ublue-os/yafti
 pip install --prefix=/usr yafti
 
@@ -20,8 +25,3 @@ flatpaks=$(yq '.flatpaks[]' < /tmp/ublue-recipe.yml)
 for pkg in $(echo -e "$flatpaks"); do \
     yq -i ".screens.applications.values.groups.Custom.packages += [{\"$pkg\": \"$pkg\"}]" /etc/yafti.yml
 done
-
-rpmbuild -ba \
-    --define '_topdir /tmp/mangohud/rpmbuild' \
-    --define '%_tmppath %{_topdir}/tmp' \
-    /tmp/mangohud/mangohud.spec

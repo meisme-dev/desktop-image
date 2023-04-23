@@ -18,7 +18,18 @@ description: A starting point for further customization of uBlue images. Make yo
 # These rpms will be installed from the fedora repository
 # using rpm-ostree and will be preinstalled in the final image
 rpms:
-  - rpm-build # needed to build mangoapp
+  - rpm-build # needed to build rpms
+  # -- mangohud deps --
+  - meson
+  - gcc
+  - gcc-c++
+  - libX11-devel
+  - glslang
+  - python3-mako
+  - mesa-libGL-devel
+  - libXNVCtrl-devel
+  - dbus-devel
+  # -- mangohud deps --
   - python3-pip # needed for yafti (the first boot installer)
   - gjs-devel
   - langpacks-en
