@@ -1,0 +1,2 @@
+[Desktop Entry]
+Exec=/usr/bin/gamescope -e --adaptive-sync -- /usr/bin/steam -bigpicture -steamos -steamos3

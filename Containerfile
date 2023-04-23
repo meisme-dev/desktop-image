@@ -6,7 +6,7 @@ ARG RECIPE
 
 # copy over configuration files
 COPY etc /etc
-# COPY usr /usr
+COPY usr /usr
 
 COPY ${RECIPE} /tmp/ublue-recipe.yml
 
