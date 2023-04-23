@@ -25,6 +25,8 @@ rpms:
   - libgda-sqlite 
   - util-linux-user 
   - zsh
+  - steam
+  - gamescope
 
 # These Flatpaks (from flathub) will be available for install on boot
 # this is just an example selection.
