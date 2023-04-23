@@ -1,5 +1,5 @@
 # The image will be at ghcr.io/yourusername/name
-name: startingpoint
+name: desktop-image
 
 # The native container image to build on top of
 # images. 
