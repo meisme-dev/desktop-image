@@ -16,9 +16,6 @@ ADD mangohud.spec /tmp/mangohud/mangohud.spec
 # copied from the official container image as it's not avaible as an rpm
 COPY --from=docker.io/mikefarah/yq /usr/bin/yq /usr/bin/yq
 
-# rpm-build is needed in build.sh
-COPY --from=docker.io/aursu/rpmbuild /usr/bin/rpmbuild /usr/bin/rpmbuild
-
 # copy and run the build script
 COPY build.sh /tmp/build.sh
 RUN chmod +x /tmp/build.sh && /tmp/build.sh
