@@ -14,12 +14,22 @@ fedora-version: 38
 
 # This description will be visible in the container metadata
 description: A starting point for further customization of uBlue images. Make your own! https://ublue.it/making-your-own/
-
+  
 # These rpms will be installed from the fedora repository
 # using rpm-ostree and will be preinstalled in the final image
 rpms:
-  - rpm-build # needed to build rpms
-  # -- mangohud deps --
+  - gjs-devel
+  - langpacks-en
+  - libgda 
+  - libgda-sqlite 
+  - util-linux-user 
+  - zsh
+  - gamescope
+
+# These will be removed after building
+deps:
+  - python3-pip
+  - rpm-build
   - meson
   - glew-devel
   - glfw-devel
@@ -36,15 +46,8 @@ rpms:
   - dbus-devel
   - spdlog-devel
   - json-devel
-  # -- mangohud deps --
-  - python3-pip # needed for yafti (the first boot installer)
-  - gjs-devel
-  - langpacks-en
-  - libgda 
-  - libgda-sqlite 
-  - util-linux-user 
-  - zsh
-  - gamescope
+  - vulkan-loader-devel
+  - vulkan-validation-layers-devel
 
 # These Flatpaks (from flathub) will be available for install on boot
 # this is just an example selection.
