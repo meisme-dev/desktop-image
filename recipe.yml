@@ -18,6 +18,7 @@ description: A starting point for further customization of uBlue images. Make yo
 # These rpms will be installed from the fedora repository
 # using rpm-ostree and will be preinstalled in the final image
 rpms:
+  - https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-38.noarch.rpm # nonfree repo
   - python3-pip # needed for yafti (the first boot installer)
   - gjs-devel
   - langpacks-en
