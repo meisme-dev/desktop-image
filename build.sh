@@ -2,7 +2,8 @@
 # remove the default firefox (from fedora) in favor of the flatpak
 rpm-ostree override remove firefox firefox-langpacks
 
-echo "-- Installing build dependencies defined in recipe.yml --"
+echo "-- Installing build dependencies defined in recipe.yml. --" 
+echo "If you do not want them removed after build is completed, put them in pkgs instead."
 rpm_deps=$(yq '.deps[]' < /tmp/ublue-recipe.yml)
 for dep in $(echo -e "$rpm_deps"); do \
     echo "Installing: ${dep}" && \
