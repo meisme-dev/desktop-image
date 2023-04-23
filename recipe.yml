@@ -25,7 +25,6 @@ rpms:
   - libgda-sqlite 
   - util-linux-user 
   - zsh
-  - steam
   - gamescope
 
 # These Flatpaks (from flathub) will be available for install on boot
@@ -41,3 +40,4 @@ flatpaks:
   - com.github.tchx84.Flatseal
   - io.github.celluloid_player.Celluloid
   - com.visualstudio.code
+  - com.valvesoftware.Steam
