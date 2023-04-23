@@ -1,5 +1,5 @@
 ARG FEDORA_MAJOR_VERSION=38
-ARG BASE_CONTAINER_URL=ghcr.io/ublue-os/kinoite-nvidia
+ARG BASE_CONTAINER_URL=ghcr.io/ublue-os/silverblue-nvidia
 
 FROM ${BASE_CONTAINER_URL}:${FEDORA_MAJOR_VERSION}
 ARG RECIPE
