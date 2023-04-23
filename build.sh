@@ -39,6 +39,6 @@ done
 echo "-- Removing build dependencies defined in recipe.yml --"
 for dep in $(echo -e "$rpm_deps"); do \
     echo "Removing: ${dep}" && \
-    rpm-ostree remove $dep; \
+    rpm-ostree uninstall $dep; \
 done
 echo "---"
