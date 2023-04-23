@@ -18,16 +18,14 @@ description: A starting point for further customization of uBlue images. Make yo
 # These rpms will be installed from the fedora repository
 # using rpm-ostree and will be preinstalled in the final image
 rpms:
-  - gjs-devel
   - langpacks-en
-  - libgda 
-  - libgda-sqlite 
   - util-linux-user 
   - zsh
   - gamescope
 
 # These will be removed after building
 deps:
+  - rpmspectool
   - python3-pip
   - rpm-build
   - meson
@@ -37,6 +35,7 @@ deps:
   - glslang-devel
   - gcc
   - gcc-c++
+  - python3-setuptools
   - wayland-devel
   - vulkan-headers
   - libX11-devel
