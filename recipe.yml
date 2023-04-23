@@ -21,14 +21,21 @@ rpms:
   - rpm-build # needed to build rpms
   # -- mangohud deps --
   - meson
+  - glew-devel
+  - glfw-devel
+  - glslang-devel
   - gcc
   - gcc-c++
+  - wayland-devel
+  - vulkan-headers
   - libX11-devel
   - glslang
   - python3-mako
   - mesa-libGL-devel
   - libXNVCtrl-devel
   - dbus-devel
+  - spdlog-devel
+  - json-devel
   # -- mangohud deps --
   - python3-pip # needed for yafti (the first boot installer)
   - gjs-devel
