@@ -3,7 +3,7 @@
 rpm-ostree override remove firefox firefox-langpacks
 
 echo "-- Installing build dependencies defined in recipe.yml --"
-rpm_deps=$(yq '.rpms[]' < /tmp/ublue-recipe.yml)
+rpm_deps=$(yq '.deps[]' < /tmp/ublue-recipe.yml)
 for dep in $(echo -e "$rpm_deps"); do \
     echo "Installing: ${dep}" && \
     rpm-ostree install $dep; \
@@ -24,7 +24,6 @@ for pkg in $(echo -e "$rpm_packages"); do \
     rpm-ostree install $pkg; \
 done
 echo "---"
-
 
 # install yafti to install flatpaks on first boot, https://github.com/ublue-os/yafti
 pip install --prefix=/usr yafti
