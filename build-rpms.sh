@@ -4,7 +4,7 @@ echo "If you do not want them removed after build is completed, put them in pkgs
 rpm_deps=$(yq '.deps[]' < /tmp/ublue-recipe.yml)
 for dep in $(echo -e "$rpm_deps"); do \
     echo "Installing: ${dep}" && \
-    yes | dnf install $dep; \
+    dnf5 install -y $dep; \
 done
 echo "---"
 
