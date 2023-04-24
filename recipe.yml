@@ -38,6 +38,8 @@ deps:
   - gcc-c++
   - python3-setuptools
   - wayland-devel
+  - appstream-devel
+  - git-core
   - vulkan-headers
   - libX11-devel
   - glslang
