@@ -18,6 +18,7 @@ description: A starting point for further customization of uBlue images. Make yo
 # These rpms will be installed from the fedora repository
 # using rpm-ostree and will be preinstalled in the final image
 rpms:
+  - python3-pip
   - podman-docker
   - langpacks-en
   - util-linux-user 
@@ -27,7 +28,6 @@ rpms:
 # These will be removed after building
 deps:
   - rpmspectool
-  - python3-pip
   - rpm-build
   - meson
   - libappstream-glib-devel
