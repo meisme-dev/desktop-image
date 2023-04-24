@@ -4,16 +4,16 @@ echo "If you do not want them removed after build is completed, put them in pkgs
 rpm_deps=$(yq '.deps[]' < /tmp/ublue-recipe.yml)
 for dep in $(echo -e "$rpm_deps"); do \
     echo "Installing: ${dep}" && \
-    dnf install $dep; \
+    dnf install $dep -y; \
 done
 echo "---"
 
 echo "-- Building mangohud --"
-cd rpm/mangohud/rpmbuild/SOURCES
-rpmspectool get rpm/mangohud/mangohud.spec
-ls -R rpm/mangohud
+cd /tmp/rpm/mangohud/rpmbuild/SOURCES
+rpmspectool get /tmp/rpm/mangohud/mangohud.spec
+ls -R /tmp/rpm/mangohud
 rpmbuild -ba \
-    --define '_topdir rpm/mangohud/rpmbuild' \
-    --define '%_tmppath %{_topdir}/rpm' \
-    rpm/mangohud/mangohud.spec
+    --define '_topdir /tmp/rpm/mangohud/rpmbuild' \
+    --define '%_tmppath %{_topdir}/tmp/rpm' \
+    /tmp/rpm/mangohud/mangohud.spec
 echo "---"
