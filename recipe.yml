@@ -19,8 +19,8 @@ description: A starting point for further customization of uBlue images. Make yo
 # using rpm-ostree and will be preinstalled in the final image
 rpms:
   - python3-pip
-  - podman-docker
   - langpacks-en
+  - libadwaita
   - util-linux-user 
   - zsh
   - gamescope
