@@ -19,8 +19,9 @@ description: A starting point for further customization of uBlue images. Make yo
 # using rpm-ostree and will be preinstalled in the final image
 rpms:
   - python3-pip
-  - langpacks-en
   - libadwaita
+  - libgda
+  - libgda-sqlite
   - util-linux-user 
   - zsh
   - gamescope
@@ -65,4 +66,5 @@ flatpaks:
   - com.github.tchx84.Flatseal
   - io.github.celluloid_player.Celluloid
   - com.visualstudio.code
+  - io.github.antimicrox.antimicrox
   - com.valvesoftware.Steam
