@@ -2,6 +2,7 @@ ARG FEDORA_MAJOR_VERSION=38
 ARG BASE_CONTAINER_URL=ghcr.io/ublue-os/silverblue-nvidia
 
 FROM fedora-minimal:${FEDORA_MAJOR_VERSION} as builder
+ARG RECIPE
 COPY ${RECIPE} /tmp/ublue-recipe.yml
 COPY --from=docker.io/mikefarah/yq /usr/bin/yq /usr/bin/yq
 COPY build-rpms.sh /tmp/build-rpms.sh
