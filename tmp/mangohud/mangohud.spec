@@ -110,6 +110,12 @@ mv imgui-%{imgui_ver} subprojects/
 %{_mandir}/man1/%{name}.1*
 %{_metainfodir}/*.metainfo.xml
 
+# fix later
+/usr/bin/mangoapp
+/usr/lib/debug/usr/bin/mangoapp-0.6.9.1-1.fc38.x86_64.debug
+/usr/share/man/man1/mangoapp.1.gz
+
+
 
 %changelog
 %autochangelog

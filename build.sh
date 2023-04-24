@@ -12,11 +12,8 @@ done
 echo "---"
 
 echo "-- Building mangohud --"
-
-mkdir -p /tmp/mangohud/rpmbuild/SOURCES
 cd /tmp/mangohud/rpmbuild/SOURCES
 rpmspectool get /tmp/mangohud/mangohud.spec
-
 rpmbuild -ba \
     --define '_topdir /tmp/mangohud/rpmbuild' \
     --define '%_tmppath %{_topdir}/tmp' \

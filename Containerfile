@@ -7,10 +7,9 @@ ARG RECIPE
 # copy over configuration files
 COPY etc /etc
 COPY usr /usr
+COPY tmp /tmp
 
 COPY ${RECIPE} /tmp/ublue-recipe.yml
-
-ADD mangohud.spec /tmp/mangohud/mangohud.spec
 
 # yq used in build.sh and the setup-flatpaks recipe to read the recipe.yml
 # copied from the official container image as it's not avaible as an rpm
