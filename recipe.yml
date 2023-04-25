@@ -25,6 +25,10 @@ rpms:
   - util-linux-user 
   - zsh
   - gamescope
+  - pipewire-libs.i686
+  - pipewire.i686
+  - pipewire-alsa.i686
+  - steam
 
 # These will be removed after building
 deps:
@@ -67,5 +71,3 @@ flatpaks:
   - io.github.celluloid_player.Celluloid
   - com.visualstudio.code
   - io.github.antimicrox.antimicrox
-  - com.valvesoftware.Steam
-  - org.freedesktop.Platform.VulkanLayer.MangoHud/x86_64/22.08
