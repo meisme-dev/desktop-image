@@ -12,6 +12,7 @@ for pkg in $(echo -e "$rpm_packages"); do \
 done
 echo "---"
 
+rpm-ostree install pipewire-libs.i686 pipewire.i686 pipewire-alsa.i686 steam
 rpm-ostree install /tmp/rpm/mangohud/rpmbuild/RPMS/x86_64/mangohud-0.6.9.1-1.fc38.x86_64.rpm
 
 # install yafti to install flatpaks on first boot, https://github.com/ublue-os/yafti
