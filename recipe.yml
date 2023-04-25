@@ -25,10 +25,7 @@ rpms:
   - util-linux-user 
   - zsh
   - gamescope
-  - pipewire-libs.i686
-  - pipewire.i686
-  - pipewire-alsa.i686
-  - steam
+  - pipewire-libs.i686 pipewire.i686 pipewire-alsa.i686 steam
 
 # These will be removed after building
 deps:
