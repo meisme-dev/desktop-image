@@ -68,4 +68,4 @@ flatpaks:
   - com.visualstudio.code
   - io.github.antimicrox.antimicrox
   - com.valvesoftware.Steam
-  - org.freedesktop.Platform.VulkanLayer.MangoHud
+  - org.freedesktop.Platform.VulkanLayer.MangoHud/x86_64/22.08
