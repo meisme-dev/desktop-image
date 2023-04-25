@@ -1,6 +1,6 @@
 # A custom uBlue desktop image
 
-[![build-ublue](https://github.com/meisme-dev/desktop-image/actions/workflows/build.yml/badge.svg)](https://github.com/ublue-os/startingpoint/actions/workflows/build.yml)
+[![build-ublue](https://github.com/meisme-dev/desktop-image/actions/workflows/build.yml/badge.svg)](https://github.com/meisme-dev/desktop-image/actions/workflows/build.yml)
 
 > **Warning**
 > This is for personal use -- please do not report issues to upstream
