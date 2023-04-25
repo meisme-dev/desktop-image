@@ -25,6 +25,7 @@ rpms:
   - util-linux-user 
   - zsh
   - gamescope
+  - steam
 
 # These will be removed after building
 deps:
@@ -67,4 +68,3 @@ flatpaks:
   - io.github.celluloid_player.Celluloid
   - com.visualstudio.code
   - io.github.antimicrox.antimicrox
-  - com.valvesoftware.Steam

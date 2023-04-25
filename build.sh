@@ -1,6 +1,6 @@
 #!/bin/bash
 # remove the default firefox (from fedora) in favor of the flatpak
-rpm-ostree override remove firefox firefox-langpacks
+rpm-ostree override remove firefox firefox-langpacks pipewire-alsa
 
 echo "-- Installing RPMs defined in recipe.yml --"
 rpm_packages=$(yq '.rpms[]' < /tmp/ublue-recipe.yml)
