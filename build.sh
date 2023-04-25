@@ -16,9 +16,9 @@ rpm-ostree install /tmp/rpm/mangohud/rpmbuild/RPMS/x86_64/mangohud-0.6.9.1-1.fc3
 pip install --prefix=/usr yafti
 
 # add a package group for yafti using the packages defined in recipe.yml
-yq -i '.screens.applications.values.groups.Custom.description = "Flatpaks defined by the image maintainer"' /etc/yafti.yml
-yq -i '.screens.applications.values.groups.Custom.default = true' /etc/yafti.yml
+yq -i '.screens.applications.values.groups.System.description = "Flatpaks defined by the image maintainer"' /etc/yafti.yml
+yq -i '.screens.applications.values.groups.System.default = true' /etc/yafti.yml
 flatpaks=$(yq '.flatpaks[]' < /tmp/ublue-recipe.yml)
 for pkg in $(echo -e "$flatpaks"); do \
-    yq -i ".screens.applications.values.groups.Custom.packages += [{\"$pkg\": \"$pkg\"}]" /etc/yafti.yml
+    yq -i ".screens.applications.values.groups.System.packages += [{\"$pkg\": \"$pkg\"}]" /etc/yafti.yml
 done

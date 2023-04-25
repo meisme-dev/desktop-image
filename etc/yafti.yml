@@ -1,6 +1,11 @@
 title: Welcome to uBlue
 properties:
   mode: "run-on-change"
+actions:
+  post:
+  - run: mkdir -p $HOME/.var/app/com.valvesoftware.Steam/.local/bin
+  - run: cp /usr/bin/steamos-session-select $HOME/.var/app/com.valvesoftware.Steam/.local/bin/
+  - run: flatpak override --env=PATH=$PATH:$HOME/.local/bin com.valvesoftware.Steam
 screens:
   first-screen:
     source: yafti.screen.title
