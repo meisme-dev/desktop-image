@@ -1,6 +1,6 @@
 #!/bin/bash
-# remove the default firefox (from fedora) in favor of the flatpak, also remove conflicting alsa package
-rpm-ostree override remove firefox firefox-langpacks pipewire-alsa
+# remove the default firefox (from fedora) in favor of the flatpak, also remove conflicting pipewire package
+rpm-ostree override remove firefox firefox-langpacks pipewire pipewire-libs pipewire-pulseaudio pipewire-gstreamer pipewire-alsa pipewire-jack-audio-connection-kit pipewire-utils pipewire-codec-aptx
 
 # enable nonfree rpmfusion for steam
 sed -i 's@enabled=0@enabled=1@g' /etc/yum.repos.d/rpmfusion-nonfree{,-updates}.repo
