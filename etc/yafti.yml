@@ -1,11 +1,6 @@
 title: Welcome to uBlue
 properties:
   mode: "run-on-change"
-actions:
-  post:
-  - run: mkdir -p $HOME/.var/app/com.valvesoftware.Steam/.local/bin
-  - run: cp /usr/bin/steamos-session-select $HOME/.var/app/com.valvesoftware.Steam/.local/bin/
-  - run: flatpak override --env=PATH=$PATH:$HOME/.local/bin com.valvesoftware.Steam
 screens:
   first-screen:
     source: yafti.screen.title
@@ -97,13 +92,30 @@ screens:
             - Gstreamer for OBS: com.obsproject.Studio.Plugin.Gstreamer
             - Gstreamer VAAPI for OBS: com.obsproject.Studio.Plugin.GStreamerVaapi
             - Boatswain for Streamdeck: com.feaneron.Boatswain
-
+        System:
+          description: Flatpaks defined by the image maintainer
+          default: true
+          packages:
+            - org.mozilla.firefox: org.mozilla.firefox
+            - org.mozilla.Thunderbird: org.mozilla.Thunderbird
+            - com.mattjakeman.ExtensionManager: com.mattjakeman.ExtensionManager
+            - org.libreoffice.LibreOffice: org.libreoffice.LibreOffice
+            - org.gnome.DejaDup: org.gnome.DejaDup
+            - org.gustavoperedo.FontDownloader: org.gustavoperedo.FontDownloader
+            - com.github.tchx84.Flatseal: com.github.tchx84.Flatseal
+            - io.github.celluloid_player.Celluloid: io.github.celluloid_player.Celluloid
+            - com.visualstudio.code: com.visualstudio.code
+            - io.github.antimicrox.antimicrox: io.github.antimicrox.antimicrox
+            - com.valvesoftware.Steam: com.valvesoftware.Steam
+            - org.freedesktop.Platform.VulkanLayer.MangoHud/x86_64/22.08: org.freedesktop.Platform.VulkanLayer.MangoHud/x86_64/22.08
   final-screen:
     source: yafti.screen.title
     values:
       title: "All done!"
       icon: "/path/to/icon"
       links:
+        - "Set up a Steam console experience":
+            run: /usr/bin/env bash -c "mkdir -p ~/.var/app/com.valvesoftware.Steam/.local/bin && cp /usr/bin/steamos-session-select ~/.var/app/com.valvesoftware.Steam/.local/bin/ && pkexec flatpak override --env=PATH=$PATH:$HOME/.local/bin com.valvesoftware.Steam"
         - "Install More Applications":
             run: /usr/bin/gnome-software
         - "Website":
