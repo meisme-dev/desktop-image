@@ -1,5 +1,5 @@
 ARG FEDORA_MAJOR_VERSION=38
-ARG BASE_CONTAINER_URL=ghcr.io/ublue-os/silverblue-nvidia
+ARG BASE_CONTAINER_URL=ghcr.io/ublue-os/kinoite-nvidia
 
 FROM fedora-minimal:${FEDORA_MAJOR_VERSION} as builder
 ARG RECIPE

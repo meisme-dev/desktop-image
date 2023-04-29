@@ -4,7 +4,7 @@ name: desktop-image
 # The native container image to build on top of
 # images. 
 # Warning: Non-uBlue images might function unexpectedly
-base-container: ghcr.io/ublue-os/silverblue-nvidia
+base-container: ghcr.io/ublue-os/kinoite-nvidia
 
 # What fedora version to use. Use an explicit version or `latest`.
 # If you use `latest`, you will be automatically updated
