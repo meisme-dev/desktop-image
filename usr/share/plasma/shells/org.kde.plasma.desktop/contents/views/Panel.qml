@@ -190,14 +190,14 @@ Item {
     property var stateTriggers: [autoFloating, alwaysFloating, neverFloating, screenCovered, isOpaque, isAdaptive, isTransparent, kwindowsystem.compositingActive]
     onStateTriggersChanged: {
         let opaqueApplets = false
-        if ((!floating || (screenCovered && !alwaysFloating)) && (isOpaque || (screenCovered && isAdaptive))) {
+        if ((neverFloating || (screenCovered && !alwaysFloating)) && (isOpaque || (screenCovered && isAdaptive))) {
             panelOpacity = 1
             opaqueApplets = true
             floatingness = 0
-        } else if ((neverFloating || screenCovered) && (isTransparent || (!screenCovered && isAdaptive))) {
+        } else if ((neverFloating || (screenCovered && !alwaysFloating)) && (isTransparent || (!screenCovered && isAdaptive))) {
             panelOpacity = 0
             floatingness = 0
-        } else if ((!neverFloating && !screenCovered || !alwaysFloating) && (isTransparent || isAdaptive)) {
+        } else if ((!neverFloating && !screenCovered || alwaysFloating) && (isTransparent || isAdaptive)) {
             panelOpacity = 0
             floatingness = 1
         } else if (!neverFloating && !screenCovered && isOpaque || !alwaysFloating) {

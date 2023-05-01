@@ -175,7 +175,7 @@ PlasmaCore.Dialog {
             Layout.topMargin: menuColumn.radioButtonGroupSpacing
             level: 3
             text: i18nd("plasma_shell_org.kde.plasma.desktop", "Floating")
-            visible: panel.adaptiveOpacityEnabled
+            visible: true
         }
 
         Column {
