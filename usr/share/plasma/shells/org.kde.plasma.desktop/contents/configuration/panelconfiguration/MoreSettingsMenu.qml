@@ -178,6 +178,10 @@ PlasmaCore.Dialog {
             visible: true
         }
 
+        QQC2.ButtonGroup {
+            buttons: floatingButtons.children
+        }
+
         Column {
             id: floatingButtons
             spacing: PlasmaCore.Units.smallSpacing * 2
