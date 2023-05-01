@@ -1,13 +1,13 @@
 ARG FEDORA_MAJOR_VERSION=38
 ARG BASE_CONTAINER_URL=ghcr.io/ublue-os/kinoite-nvidia
 
-FROM fedora-minimal:${FEDORA_MAJOR_VERSION} as builder
-ARG RECIPE
-COPY ${RECIPE} /tmp/ublue-recipe.yml
-COPY rpm /tmp/rpm
-COPY --from=docker.io/mikefarah/yq /usr/bin/yq /usr/bin/yq
-COPY build-rpms.sh /tmp/build-rpms.sh
-RUN chmod +x /tmp/build-rpms.sh && /tmp/build-rpms.sh
+# FROM fedora-minimal:${FEDORA_MAJOR_VERSION} as builder
+# ARG RECIPE
+# COPY ${RECIPE} /tmp/ublue-recipe.yml
+# COPY rpm /tmp/rpm
+# COPY --from=docker.io/mikefarah/yq /usr/bin/yq /usr/bin/yq
+# COPY build-rpms.sh /tmp/build-rpms.sh
+# RUN chmod +x /tmp/build-rpms.sh && /tmp/build-rpms.sh
 
 FROM ${BASE_CONTAINER_URL}:${FEDORA_MAJOR_VERSION}
 ARG RECIPE

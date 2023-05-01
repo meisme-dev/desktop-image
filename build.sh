@@ -2,7 +2,7 @@
 # remove the default firefox (from fedora) in favor of the flatpak, also remove conflicting pipewire package
 rpm-ostree override remove firefox firefox-langpacks
 
-sed -i 's@enabled=0@enabled=1@g' /etc/yum.repos.d/rpmfusion-nonfree{,-updates}.repo
+# sed -i 's@enabled=0@enabled=1@g' /etc/yum.repos.d/rpmfusion-nonfree{,-updates}.repo
 
 echo "-- Installing RPMs defined in recipe.yml --"
 rpm_packages=$(yq '.rpms[]' < /tmp/ublue-recipe.yml)
@@ -12,7 +12,7 @@ for pkg in $(echo -e "$rpm_packages"); do \
 done
 echo "---"
 
-rpm-ostree install /tmp/rpm/mangohud/rpmbuild/RPMS/x86_64/mangohud-0.6.9.1-1.fc38.x86_64.rpm
+# rpm-ostree install /tmp/rpm/mangohud/rpmbuild/RPMS/x86_64/mangohud-0.6.9.1-1.fc38.x86_64.rpm
 
 # install yafti to install flatpaks on first boot, https://github.com/ublue-os/yafti
 pip install --prefix=/usr yafti
