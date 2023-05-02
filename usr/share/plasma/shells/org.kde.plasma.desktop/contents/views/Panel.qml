@@ -43,10 +43,10 @@ Item {
     readonly property int leftPadding: Math.round(Math.min(thickPanelSvg.fixedMargins.left, spacingAtMinSize));
     readonly property int rightPadding: Math.round(Math.min(thickPanelSvg.fixedMargins.right, spacingAtMinSize));
 
-    readonly property int bottomFloatingPadding: panel.floating !== 0 && containment.location !== PlasmaCore.Types.TopEdge ? (floatingPrefix ? floatingPanelSvg.fixedMargins.bottom : 8) : 0
-    readonly property int leftFloatingPadding: panel.floating !== 0 && containment.location !== PlasmaCore.Types.RightEdge ? (floatingPrefix ? floatingPanelSvg.fixedMargins.left   : 8) : 0
-    readonly property int rightFloatingPadding: panel.floating !== 0 && containment.location !== PlasmaCore.Types.LeftEdge ? (floatingPrefix ? floatingPanelSvg.fixedMargins.right  : 8) : 0
-    readonly property int topFloatingPadding: panel.floating !== 0 && containment.location !== PlasmaCore.Types.BottomEdge ? (floatingPrefix ? floatingPanelSvg.fixedMargins.top    : 8) : 0
+    readonly property int bottomFloatingPadding: panel.floating ? (floatingPrefix ? floatingPanelSvg.fixedMargins.bottom : 8) : 0
+    readonly property int leftFloatingPadding: panel.floating ? (floatingPrefix ? floatingPanelSvg.fixedMargins.left   : 8) : 0
+    readonly property int rightFloatingPadding: panel.floating ? (floatingPrefix ? floatingPanelSvg.fixedMargins.right  : 8) : 0
+    readonly property int topFloatingPadding: panel.floating ? (floatingPrefix ? floatingPanelSvg.fixedMargins.top    : 8) : 0
 
     // We divide by 2 when not floating as only one corner per side is drawn in that case,
     // meaning the panel can be as small as that corner size without visual glitches,
