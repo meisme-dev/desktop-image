@@ -104,10 +104,10 @@ PlasmaCore.ToolTipArea {
             property bool returnAllMargins: true
             // The above makes sure margin is returned even for side margins, that
             // would be otherwise turned off.
-            bottomMargin: containerMargins ? 8;
-            topMargin: containerMargins ? 8;
-            leftMargin: containerMargins ? 8;
-            rightMargin: containerMargins ? 8;
+            bottomMargin: containerMargins ? -containerMargins('bottom', returnAllMargins) : 0;
+            topMargin: containerMargins ? -containerMargins('top', returnAllMargins) : 0;
+            leftMargin: containerMargins ? -containerMargins('left', returnAllMargins) : 0;
+            rightMargin: containerMargins ? -containerMargins('right', returnAllMargins) : 0;
         }
         imagePath: "widgets/tabbar"
         visible: opacity > 0
@@ -164,7 +164,7 @@ PlasmaCore.ToolTipArea {
         id: dialog
         objectName: "popupWindow"
         flags: Qt.WindowStaysOnTopHint
-        location: Plasmoid.location
+        location: PlasmaCore.Types.Floating
         hideOnWindowDeactivate: Plasmoid.hideOnWindowDeactivate
         visible: Plasmoid.expanded && fullRepresentation
         visualParent: root.compactRepresentation
