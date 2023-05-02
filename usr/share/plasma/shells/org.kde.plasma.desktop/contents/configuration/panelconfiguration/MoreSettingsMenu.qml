@@ -198,7 +198,7 @@ PlasmaCore.Dialog {
                 checkable: true
                 text: i18nd("plasma_shell_org.kde.plasma.desktop", "Never floating")
                 checked: panel.floating === 0
-                onClicked: panel.floating = 1      
+                onClicked: panel.floating = 0 
             }
         }
 
