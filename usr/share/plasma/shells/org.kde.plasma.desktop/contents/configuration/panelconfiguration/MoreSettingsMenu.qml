@@ -182,7 +182,7 @@ PlasmaCore.Dialog {
             buttons: floatingButtons.children
         }
 
-        Column {
+               Column {
             id: floatingButtons
             spacing: PlasmaCore.Units.smallSpacing * 2
             Layout.fillWidth: true
@@ -190,21 +190,15 @@ PlasmaCore.Dialog {
             Layout.bottomMargin: menuColumn.radioButtonGroupSpacing
             PC3.RadioButton {
                 checkable: true
-                text: i18nd("plasma_shell_org.kde.plasma.desktop", "Auto floating")
+                text: i18nd("plasma_shell_org.kde.plasma.desktop", "Always floating")
                 checked: panel.floating === 1
                 onClicked: panel.floating = 1
             }
             PC3.RadioButton {
                 checkable: true
-                text: i18nd("plasma_shell_org.kde.plasma.desktop", "Always floating")
-                checked: panel.floating === 2
-                onClicked: panel.floating = 2
-            }
-            PC3.RadioButton {
-                checkable: true
                 text: i18nd("plasma_shell_org.kde.plasma.desktop", "Never floating")
                 checked: panel.floating === 0
-                onClicked: panel.floating = 0
+                onClicked: panel.floating = 1    0           
             }
         }
 

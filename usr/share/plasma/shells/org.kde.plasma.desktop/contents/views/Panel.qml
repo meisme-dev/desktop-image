@@ -43,16 +43,16 @@ Item {
     readonly property int leftPadding: Math.round(Math.min(thickPanelSvg.fixedMargins.left, spacingAtMinSize));
     readonly property int rightPadding: Math.round(Math.min(thickPanelSvg.fixedMargins.right, spacingAtMinSize));
 
-    readonly property int bottomFloatingPadding: floating !== 0 && containment.location !== PlasmaCore.Types.TopEdge ? (floatingPrefix ? floatingPanelSvg.fixedMargins.bottom : 8) : 0
-    readonly property int leftFloatingPadding: floating !== 0 && containment.location !== PlasmaCore.Types.RightEdge ? (floatingPrefix ? floatingPanelSvg.fixedMargins.left   : 8) : 0
-    readonly property int rightFloatingPadding: floating !== 0 && containment.location !== PlasmaCore.Types.LeftEdge ? (floatingPrefix ? floatingPanelSvg.fixedMargins.right  : 8) : 0
-    readonly property int topFloatingPadding: floating !== 0 && containment.location !== PlasmaCore.Types.BottomEdge ? (floatingPrefix ? floatingPanelSvg.fixedMargins.top    : 8) : 0
+    readonly property int bottomFloatingPadding: panel.floating !== 0 && containment.location !== PlasmaCore.Types.TopEdge ? (floatingPrefix ? floatingPanelSvg.fixedMargins.bottom : 8) : 0
+    readonly property int leftFloatingPadding: panel.floating !== 0 && containment.location !== PlasmaCore.Types.RightEdge ? (floatingPrefix ? floatingPanelSvg.fixedMargins.left   : 8) : 0
+    readonly property int rightFloatingPadding: panel.floating !== 0 && containment.location !== PlasmaCore.Types.LeftEdge ? (floatingPrefix ? floatingPanelSvg.fixedMargins.right  : 8) : 0
+    readonly property int topFloatingPadding: panel.floating !== 0 && containment.location !== PlasmaCore.Types.BottomEdge ? (floatingPrefix ? floatingPanelSvg.fixedMargins.top    : 8) : 0
 
     // We divide by 2 when not floating as only one corner per side is drawn in that case,
     // meaning the panel can be as small as that corner size without visual glitches,
     // whereas the floating panel - with two corners - needs two times that. 
-    readonly property int minPanelHeight: translucentItem.minimumDrawingHeight / (floating !== 0 ? 1 : 2)
-    readonly property int minPanelWidth: translucentItem.minimumDrawingWidth / (floating !== 0 ? 1 : 2)
+    readonly property int minPanelHeight: translucentItem.minimumDrawingHeight / (panel.floating !== 0 ? 1 : 2)
+    readonly property int minPanelWidth: translucentItem.minimumDrawingWidth / (panel.floating !== 0 ? 1 : 2)
 
     TaskManager.VirtualDesktopInfo {
         id: virtualDesktopInfo
@@ -183,28 +183,27 @@ Item {
     property bool isOpaque: panel.opacityMode === Panel.Global.Opaque
     property bool isTransparent: panel.opacityMode === Panel.Global.Translucent
     property bool isAdaptive: panel.opacityMode === Panel.Global.Adaptive
-    property bool autoFloating: panel.floating === 1
-    property bool alwaysFloating: panel.floating === 2
-    property bool neverFloating: panel.floating === 0
+    property bool floating: panel.floating
     readonly property bool screenCovered: !kwindowsystem.showingDesktop && touchingWindow && panel.visibilityMode == Panel.Global.NormalPanel
-    property var stateTriggers: [autoFloating, alwaysFloating, neverFloating, screenCovered, isOpaque, isAdaptive, isTransparent, kwindowsystem.compositingActive]
+    property var stateTriggers: [floating, screenCovered, isOpaque, isAdaptive, isTransparent, kwindowsystem.compositingActive]
     onStateTriggersChanged: {
         let opaqueApplets = false
-        if ((neverFloating || (screenCovered && !alwaysFloating)) && (isOpaque || (screenCovered && isAdaptive))) {
+        if (!floating && (isOpaque || (screenCovered && isAdaptive))) {
             panelOpacity = 1
             opaqueApplets = true
             floatingness = 0
-        } else if ((neverFloating || (screenCovered && !alwaysFloating)) && (isTransparent || (!screenCovered && isAdaptive))) {
+        } else if (!floating && (isTransparent || (!screenCovered && isAdaptive))) {
             panelOpacity = 0
             floatingness = 0
-        } else if ((!neverFloating && !screenCovered || alwaysFloating) && (isTransparent || isAdaptive)) {
+        } else if (floating && (isTransparent || isAdaptive)) {
             panelOpacity = 0
             floatingness = 1
-        } else if (!neverFloating && !screenCovered && isOpaque || !alwaysFloating) {
+        } else if (floating && !screenCovered && isOpaque) {
             panelOpacity = 1
             opaqueApplets = true
             floatingness = 1
         }
+
         if (!kwindowsystem.compositingActive) {
             opaqueApplets = false
             panelOpacity = 0
